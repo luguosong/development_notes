@@ -1,0 +1,88 @@
+site_name: Open Cloud开发笔记
+dev_addr: 127.0.0.1:8001
+
+theme:
+  name: material
+  language: zh
+  font:
+    code: Source Code Pro
+  features:
+    - navigation.instant
+    - navigation.instant.progress #导航进度
+    - navigation.tracking #URL会自动更新为目录中突出显示的活动锚点
+    - navigation.path #导航路径
+    - navigation.top #返回顶部功能
+    - navigation.indexes #索引页面
+    #- navigation.prune #只有可见的导航项包含在渲染的HTML中
+    #- header.autohide #自动隐藏标题栏
+    - navigation.footer #底部导航
+    - toc.follow #目录跟随
+    - search.suggest #搜索建议
+    - search.highlight #搜索结果高亮
+    - search.share #搜索结果页面分享
+    - content.action.edit # 代码查看按钮
+    - content.action.view # 代码修改按钮
+    - content.code.copy # 代码块复制按钮
+    - content.code.annotate
+  palette:
+    - scheme: slate
+      primary: black
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+    - scheme: default
+      primary: white
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: 切换到黑暗模式
+
+markdown_extensions:
+  - tables # 表格支持
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - admonition
+  - md_in_html
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      use_pygments: true #控制是在构建时使用Pygments进行高亮还是在浏览器中使用JavaScript语法高亮器进行高亮。
+      anchor_linenums: true
+      auto_title: true #自动为所有代码块添加一个标题
+      line_spans: __span
+      pygments_lang_class: true #指示Pygments添加一个CSS类来标识代码块的语言
+      linenums: true #为所有代码块添加行号
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - toc:
+      permalink: "#" #在标题末尾生成永久链接
+      separator: "_" #将标题id中的空格替换成'_'
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search
+  - glightbox: # 图片查看插件
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: none
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: false
+      auto_caption: true
+      caption_position: bottom
+
+copyright: Copyright &copy; 2024 Lu Guosong #版权信息
+
