@@ -1,12 +1,22 @@
 site_name: Open Cloud开发笔记
-dev_addr: 127.0.0.1:8001
+repo_url: https://github.com/luguosong/development_notes # 右上角仓库链接地址
+repo_name: development_notes # 右上角仓库名称
+edit_uri: edit/master/docs/
+docs_dir: docs
+dev_addr: '127.0.0.1:8001'
 
 theme:
   name: material
   language: zh
+  custom_dir: overrides # 自定义主题目录
   font:
     code: Source Code Pro
+  logo: https://gcore.jsdelivr.net/gh/luguosong/programming-notes@main/code/assert/logo.gif
+  favicon: https://gcore.jsdelivr.net/gh/luguosong/programming-notes@main/code/assert/logo.gif
+  icon:
+    repo: fontawesome/brands/github
   features:
+    # - navigation.tabs #导航选项卡
     - navigation.instant
     - navigation.instant.progress #导航进度
     - navigation.tracking #URL会自动更新为目录中突出显示的活动锚点
@@ -25,20 +35,23 @@ theme:
     - content.code.copy # 代码块复制按钮
     - content.code.annotate
   palette:
+    - scheme: default
+      primary: light green
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: 切换到黑暗模式
     - scheme: slate
       primary: black
       accent: light blue
       toggle:
         icon: material/brightness-4
         name: 切换到浅色模式
-    - scheme: default
-      primary: white
-      accent: deep purple
-      toggle:
-        icon: material/brightness-7
-        name: 切换到黑暗模式
 
 markdown_extensions:
+  - footnotes
+  - pymdownx.arithmatex:
+      generic: true
   - tables # 表格支持
   - def_list
   - pymdownx.tasklist:
@@ -62,6 +75,7 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true #指示Pygments添加一个CSS类来标识代码块的语言
       linenums: true #为所有代码块添加行号
+      linenums_style: pymdownx-inline # 行号样式
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - toc:
@@ -70,19 +84,67 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
 
+extra:
+  analytics:
+    provider: google
+    property: G-MT4W7HGBVZ
+    feedback:
+      title: 此页面是否有帮助？
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: 此页面很有帮助
+          data: 1
+          note: >-
+            感谢您的反馈!
+        - icon: material/emoticon-sad-outline
+          name: 此页可以改进
+          data: 0
+          note: >-
+            感谢您的反馈！请使用我们的
+            <a href="https://github.com/luguosong/programming-notes/issues/new/?title=[Feedback]+{title}+-+{url}" target="_blank" rel="noopener">反馈表</a>
+            帮助我们改进此页面。
+  generator: true # 显示使用Material for MkDocs制作
+  social: #底部社交媒体链接
+    - icon: fontawesome/brands/github
+      link: https://github.com/luguosong
+      name: Github
+    - icon: simple/wechat
+      link: https://gcore.jsdelivr.net/gh/luguosong/images@master/blog-img/202404272008366.png
+      name: 微信
+
 plugins:
-  - search
+  - statistics: # 字数统计插件：https://github.com/TonyCrane/mkdocs-statistics-plugin
+      words_per_minute: 50
   - glightbox: # 图片查看插件
       touchNavigation: true
       loop: false
-      effect: zoom
-      slide_effect: none
-      width: 100%
-      height: auto
       zoomable: true
       draggable: false
       auto_caption: true
-      caption_position: bottom
+      background: #000000
+  - search
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      cache_safe: true
+
+extra_css:
+  - custom/css/font.css
+  - custom/css/custom.css
+  - https://unpkg.com/katex@0/dist/katex.min.css
+
+extra_javascript:
+  - custom/js/custom.js
+  - custom/js/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+exclude_docs: |
+  **/node_modules
 
 copyright: Copyright &copy; 2024 Lu Guosong #版权信息
+
+nav:
+  - 主页: index.md
 
