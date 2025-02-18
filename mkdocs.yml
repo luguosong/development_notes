@@ -3,7 +3,7 @@ repo_url: https://github.com/luguosong/development_notes # 右上角仓库链接
 repo_name: development_notes # 右上角仓库名称
 edit_uri: edit/master/docs/
 docs_dir: docs
-dev_addr: '127.0.0.1:8001'
+dev_addr: '127.0.0.1:4882'
 
 theme:
   name: material
@@ -147,4 +147,8 @@ copyright: Copyright &copy; 2024 Lu Guosong #版权信息
 
 nav:
   - 主页: index.md
+  - 部署说明:
+      - deployment-instructions/index.md
+      - Windows环境部署: deployment-instructions/windows/index.md
+      - Docker部署: deployment-instructions/docker/index.md
 
