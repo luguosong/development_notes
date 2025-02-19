@@ -44,17 +44,20 @@
 #### 服务
 
 - OpenCloud服务
-	- `18001`:服务端口，供WebViewerDemo前端示例程序调用，如果不部署该Demo前端，则无需暴露此端口
+    - `18001:8001`:服务端口，供WebViewerDemo前端示例程序调用，如果不部署该Demo前端，则无需暴露此端口
 - minio服务
-	- `18100`：服务调用端口
-	- `18101`：管理控制台端口
-- uocs Java 服务
-	- `18201:8201`:网关
-	- `x:8202`：basic基础服务,前端通过网关访问服务，端口无需暴露
-	- `x:8203`：openCloud服务，前端通过网关访问服务，端口无需暴露
-	- `x:8204`：广东定制（包含批量签章对接相关接口），前端通过网关访问服务，端口无需暴露
+    - `18100:8100`：服务调用端口
+    - `18101:8101`：管理控制台端口
+- nacos服务
+    - `18848:8848`
+    - `19848:9848`
+- uocs Java 微服务
+    - `18201:8201`:网关
+    - `x:8202`：basic基础服务,前端通过网关访问服务，端口无需暴露
+    - `x:8203`：openCloud服务，前端通过网关访问服务，端口无需暴露
+    - `x:8204`：广东定制（包含批量签章对接相关接口），前端通过网关访问服务，端口无需暴露
 - 东莞业务模拟系统
-	- `18301:8301`:服务端口，供WebViewerDemo前端示例程序调用，如果不部署该Demo前端，则无需暴露此端口
+    - `18301:8301`:服务端口，供WebViewerDemo前端示例程序调用，如果不部署该Demo前端，则无需暴露此端口
 
 #### 数据库
 
@@ -139,13 +142,50 @@ compose时，如果宿主机中不存在对应的配置文件，docker并不会�
 
 所有我们在第一次启动容器前，需要先手动创建对应配置文件，具体操作如下。
 
-#### 最终方案
+#### 手动操作
 
 !!! warning
 
-	这些操作都需要在`首次`执行`docker compose up`前执行
+	这些操作都需要在`首次`执行`docker compose up`前执行，否则首次容器启动会发生异常。
 
-## 容器首次
+- 拷贝WebViewerDemo前端项目配置文件到data目录，并修改其中的ip和端口
+
+<figure markdown="span">
+  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502191426821.png){ loading=lazy }
+  <figcaption>拷贝WebViewerDemo前端配置文件</figcaption>
+</figure>
+
+- 拷贝UOCSClient前端项目配置文件到data目录，并修改其中的ip和端口
+
+<figure markdown="span">
+  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502191446854.png){ loading=lazy }
+  <figcaption>拷贝UOCSClient前端配置文件</figcaption>
+</figure>
+
+- 拷贝BusinessClient前端项目配置文件到data目录，并修改其中的ip和端口
+
+<figure markdown="span">
+  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502191533717.png){ loading=lazy }
+  <figcaption>拷贝BusinessClient前端配置文件</figcaption>
+</figure>
+
+- 拷贝BatchSigningClient前端项目配置文件到data目录，并修改其中的ip和端口
+
+<figure markdown="span">
+  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502191543941.png){ loading=lazy }
+  <figcaption>拷贝BatchSigningClient前端配置文件</figcaption>
+</figure>
+
+#### 简化操作
+
+考虑到手动拷贝的繁琐，在安装包中准备了`初始data`包,可以将`InitData目录`中准备好的被指文件直接拷贝到data目录。
+
+<figure markdown="span">
+  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502191557357.png){ loading=lazy }
+  <figcaption>将InitData目录中的数据拷贝到data中</figcaption>
+</figure>
+
+## 容器首次启动
 
 ```shell
 # -d 表示后台启动（可选）
