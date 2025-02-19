@@ -11,10 +11,6 @@
 
 	这样做uocs-app内部所有文件都是需要同步至`svn`的，`data目录`中的数据不需要同步。这样做更加清晰。
 
-!!! warning
-
-	注意：容器启动所需要的配置文件，是存放在`uocs-app目录`中的，而不是放在`data目录`。
-
 <figure markdown="span">
   ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502121700318.png){ loading=lazy }
   <figcaption>文档结构</figcaption>
