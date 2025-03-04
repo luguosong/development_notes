@@ -147,8 +147,16 @@ copyright: Copyright &copy; 2024 Lu Guosong #版权信息
 
 nav:
   - 主页: index.md
+  - OpenCloud官方文档:
+      - opencloud-docs/index.md
+      - 指南:
+          - opencloud-docs/guides/index.md
+          - 自定义Job: opencloud-docs/guides/custom-job/index.md
   - 部署说明:
       - deployment-instructions/index.md
       - Windows环境部署: deployment-instructions/windows/index.md
       - Docker部署: deployment-instructions/docker/index.md
 
+  - 系统对接文档:
+      - docking/index.md
+      - 广东国地对接: docking/dongguan/index.md
