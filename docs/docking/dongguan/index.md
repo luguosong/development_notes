@@ -155,12 +155,20 @@ http://106.14.254.175:17003/?callback=http%3A%2F%2F106.14.254.175%3A18301%2Ffile
       {
         "name": "案例图.dwg",
         "businessFileId": "1896749367729123330",
-        "fileUrl": "http://106.14.254.175:18301/file/downloadFile/1896749367729123330"
+        "fileUrl": "http://106.14.254.175:18301/file/downloadFile/1896749367729123330",
+        "isLeaf": "true"
       },
       {
-        "name": "Drawing1.dwg",
-        "businessFileId": "1896749391347249153",
-        "fileUrl": "http://106.14.254.175:18301/file/downloadFile/1896749391347249153"
+        "name": "目录1",
+        "isLeaf": "false",
+        "children": [
+          {
+            "name": "案例图.dwg",
+            "businessFileId": "1896749391347249153",
+            "fileUrl": "http://106.14.254.175:18301/file/downloadFile/1896749391347249153",
+            "isLeaf": "true"
+          }
+        ]
       }
     ]
   }
@@ -175,3 +183,4 @@ http://106.14.254.175:17003/?callback=http%3A%2F%2F106.14.254.175%3A18301%2Ffile
 | name           | String | 否      | 文件名                               |
 | businessFileId | String | 否      | 业务系统id                            |
 | fileUrl        | String | 否      | 文件下载地址                            |
+

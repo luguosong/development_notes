@@ -152,6 +152,12 @@ nav:
       - 指南:
           - opencloud-docs/guides/index.md
           - 自定义Job: opencloud-docs/guides/custom-job/index.md
+      - Server:
+          - opencloud-docs/server/index.md
+          - JobRunner: opencloud-docs/server/jobrunner/index.md
+  - 开发文档:
+      - development-documentation/index.md
+      - 开发文档: development-documentation/basic/index.md
   - 部署说明:
       - deployment-instructions/index.md
       - Windows环境部署: deployment-instructions/windows/index.md
