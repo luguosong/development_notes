@@ -155,14 +155,20 @@ nav:
       - Server:
           - opencloud-docs/server/index.md
           - JobRunner: opencloud-docs/server/jobrunner/index.md
+  - VisualizeJS:
+      - visualize-js/index.md
+      - API文档:
+          - visualize-js/api/index.md
+          - OdTvTextStyle: visualize-js/api/OdTvTextStyle/index.md
   - 开发文档:
       - development-documentation/index.md
-      - 开发文档: development-documentation/basic/index.md
+      - 前端开发文档: development-documentation/front-end/index.md
+      - 后端开发文档: development-documentation/back-end/index.md
+      - 广东定制: development-documentation/guangdong/index.md
   - 部署说明:
       - deployment-instructions/index.md
       - Windows环境部署: deployment-instructions/windows/index.md
       - Docker部署: deployment-instructions/docker/index.md
-
   - 系统对接文档:
       - docking/index.md
       - 广东国地对接: docking/dongguan/index.md
