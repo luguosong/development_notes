@@ -169,6 +169,7 @@ nav:
       - deployment-instructions/index.md
       - Windows环境部署: deployment-instructions/windows/index.md
       - Docker部署: deployment-instructions/docker/index.md
+      - 广东国地批签定制部署: deployment-instructions/gd/index.md
   - 系统对接文档:
       - docking/index.md
       - 广东国地对接: docking/dongguan/index.md

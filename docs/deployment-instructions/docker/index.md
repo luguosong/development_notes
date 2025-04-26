@@ -16,9 +16,13 @@
   <figcaption>文档结构</figcaption>
 </figure>
 
-## 端口暴露
+## 端口说明
 
 ### 约定
+
+容器`内部端口`不做要求，因为有些服务具有特定端口，并且内部端口之间还相互存在关联（比如nacos的8848和9848端口）。全部修改没有必要，增加工作量。
+
+为了规范管理，暴露出来的端口做统一规范。
 
 - `17xxx`:前端服务
 - `18xxx`:后端服务
@@ -35,7 +39,7 @@
 - 东莞批量签章定制
 	- `17003:80`
 - GMCore前端
-  - `17004:80`
+	- `17004:80`
 - uocs前端
 	- `17102:80`
 
@@ -62,15 +66,15 @@
 #### 数据库
 
 - mongo数据库
-    - `19001:27017`：方便可视化工具连接，如果不需要连接则无需暴露此端口(建议内网环境中暴露，端口不公开)
+	- `19001:27017`：方便可视化工具连接，如果不需要连接则无需暴露此端口(建议内网环境中暴露，端口不公开)
 - mysql
-    - `19002:3306`:外部可视化工具方便访问
+	- `19002:3306`:外部可视化工具方便访问
 - redis
 	- `19003:6379`
 
 ## 基础镜像制作
 
-### OpenCloudServerBasic
+### OpenCloudServerBasic制作
 
 - 根据Dockerfile生成镜像(此时镜像会保存在Docker环境中)
 
@@ -84,7 +88,7 @@ docker build -t aspnet-basic:latest .
 docker save -o aspnet-basic.tar aspnet-basic
 ```
 
-### JobRunner
+### JobRunner制作
 
 - 创建离线镜像
 
@@ -100,7 +104,31 @@ docker save -o job-runner-basic.tar job-runner-basic
 
 ## 容器首次启动前初始化
 
-### OpenCloudServer配置说明
+### 导入基础镜像
+
+`/BasicImage`目录下存放docker需要的基础镜像，用于离线部署
+
+`x86目录`中存放x86环境的基础镜像，`arm目录`中存放arm环境的基础镜像。
+
+<figure markdown="span">
+  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504231336499.png){ loading=lazy }
+  <figcaption>基础镜像目录</figcaption>
+</figure>
+
+### 配置说明
+
+公共的环境变量统一在`compose.yaml`同级目录下的`.env`文件中进行配置。
+
+!!! warning
+
+	`.env`中的安全信息为开发测试数据，是公开的。（开发测试环境中不需要修改密码，因为开发代码配置中可能写死了某些默认的配置，再比如Navicat中配置的固定数据库密码）
+
+	每次正式新环境部署，为了安全考虑，首先修改`.env`中的密码等数据。提高系统安全性。
+
+<figure markdown="span">
+  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504231338153.png){ loading=lazy }
+  <figcaption>环境变量配置</figcaption>
+</figure>
 
 docker环境下，OpenCloudServer不再读取`appsettings.json`,配置文件统一在`compose.yaml`文件中通过环境变量进行配置。
 
@@ -108,6 +136,8 @@ docker环境下，OpenCloudServer不再读取`appsettings.json`,配置文件统�
   ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502121726547.png){ loading=lazy }
   <figcaption>使用环境变量配置OpenCloudServer</figcaption>
 </figure>
+
+除此之外，Java等其它环境均通过环境变量进行配置。
 
 ### 配置文件预处理
 
@@ -190,9 +220,53 @@ compose时，如果宿主机中不存在对应的配置文件，docker并不会�
 ## 容器首次启动
 
 ```shell
+# 构建镜像
+docker compose build
+```
+
+```shell
 # -d 表示后台启动（可选）
 docker compose up -d
 ```
 
 ## 容器启动后的配置
+
+### Gmcore admin用户设置
+
+Gmcore服务创建时，会新建admin用户。但并没有初始化证书，这将导致admin用户无法创建印章。
+
+<figure markdown="span">
+  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504231630095.png){ loading=lazy }
+  <figcaption>初始admin用户名下没有证书</figcaption>
+</figure>
+
+解决方案一：修改用户时，如果x509证书为空，后端会自动生成用户证书。
+
+<figure markdown="span">
+  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504231642202.png){ loading=lazy }
+  <figcaption>手动生成用户证书</figcaption>
+</figure>
+
+解决方案二：直接创建一个新用户
+
+<figure markdown="span">
+  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504231644009.png){ loading=lazy }
+  <figcaption>创建新用户</figcaption>
+</figure>
+
+### Gmcore印章数据过大
+
+如果Gmcore使用的是Mysql数据库，生成印章时，可能会因为图片数据过大报错，需要手动修改数据库SealInfo表字段。将`blob`类型改为`mediumblob`类型。
+
+<figure markdown="span">
+  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504231737473.png){ loading=lazy }
+  <figcaption>修改mysql数据库字段类型</figcaption>
+</figure>
+
+### 导入OpenCloud JOb模板
+
+<figure markdown="span">
+  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504250946998.png){ loading=lazy }
+  <figcaption>导入docker资源中提供的OpenCloud JOb模板</figcaption>
+</figure>
 
