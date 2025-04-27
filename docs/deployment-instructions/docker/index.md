@@ -217,6 +217,12 @@ compose时，如果宿主机中不存在对应的配置文件，docker并不会�
   <figcaption>将InitData目录中的数据拷贝到data中</figcaption>
 </figure>
 
+!!! warning
+
+	`InitData目录`中的默认配置，保证了服务可以在部署电脑内部正确访问（全部配置的是`localhost`本地地址）
+
+	但如果希望在公网环境发布，需要将配置文件中的`localhost`改为`公网地址`。
+
 ## 容器首次启动
 
 ```shell
