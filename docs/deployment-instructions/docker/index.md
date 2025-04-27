@@ -12,7 +12,7 @@
 	这样做uocs-app内部所有文件都是需要同步至`svn`的，`data目录`中的数据不需要同步。这样做更加清晰。
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502121700318.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202502121700318.png){ loading=lazy }
   <figcaption>文档结构</figcaption>
 </figure>
 
@@ -111,7 +111,7 @@ docker save -o job-runner-basic.tar job-runner-basic
 `x86目录`中存放x86环境的基础镜像，`arm目录`中存放arm环境的基础镜像。
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504231336499.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202504231336499.png){ loading=lazy }
   <figcaption>基础镜像目录</figcaption>
 </figure>
 
@@ -126,14 +126,14 @@ docker save -o job-runner-basic.tar job-runner-basic
 	每次正式新环境部署，为了安全考虑，首先修改`.env`中的密码等数据。提高系统安全性。
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504231338153.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202504231338153.png){ loading=lazy }
   <figcaption>环境变量配置</figcaption>
 </figure>
 
 docker环境下，OpenCloudServer不再读取`appsettings.json`,配置文件统一在`compose.yaml`文件中通过环境变量进行配置。
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502121726547.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202502121726547.png){ loading=lazy }
   <figcaption>使用环境变量配置OpenCloudServer</figcaption>
 </figure>
 
@@ -151,14 +151,14 @@ Docker 的环境中运行，无需依赖外部文件。但如果需要修改 con
 方式一还存在一个问题，`每次svn同步，都会覆盖修改后的配置文件`。这会使每次svn同步后都需要重新手动配置config.json配置文件。
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502181727335.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202502181727335.png){ loading=lazy }
   <figcaption>每次svn同步，都会覆盖修改后的配置文件</figcaption>
 </figure>
 
 `方式二`是采用docker compose配置文件中的volumes属性进行文件挂载。
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502181731138.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202502181731138.png){ loading=lazy }
   <figcaption>使用docker compose挂载配置文件</figcaption>
 </figure>
 
@@ -168,7 +168,7 @@ Docker 的环境中运行，无需依赖外部文件。但如果需要修改 con
 compose时，如果宿主机中不存在对应的配置文件，docker并不会从容器中拷贝config.json配置文件到宿主机。而是会直接在宿主机中创建名为config.json的文件夹，这显然是错误的。
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502181738381.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202502181738381.png){ loading=lazy }
   <figcaption>如果宿主机中不存在对应配置文件</figcaption>
 </figure>
 
@@ -183,28 +183,28 @@ compose时，如果宿主机中不存在对应的配置文件，docker并不会�
 - 拷贝WebViewerDemo前端项目配置文件到data目录，并修改其中的ip和端口
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502191426821.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202502191426821.png){ loading=lazy }
   <figcaption>拷贝WebViewerDemo前端配置文件</figcaption>
 </figure>
 
 - 拷贝UOCSClient前端项目配置文件到data目录，并修改其中的ip和端口
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502191446854.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202502191446854.png){ loading=lazy }
   <figcaption>拷贝UOCSClient前端配置文件</figcaption>
 </figure>
 
 - 拷贝BusinessClient前端项目配置文件到data目录，并修改其中的ip和端口
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504270925019.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202504270925019.png){ loading=lazy }
   <figcaption>拷贝BusinessClient前端配置文件</figcaption>
 </figure>
 
 - 拷贝BatchSigningClient前端项目配置文件到data目录，并修改其中的ip和端口
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502191543941.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202502191543941.png){ loading=lazy }
   <figcaption>拷贝BatchSigningClient前端配置文件</figcaption>
 </figure>
 
@@ -213,7 +213,7 @@ compose时，如果宿主机中不存在对应的配置文件，docker并不会�
 考虑到手动拷贝的繁琐，在安装包中准备了`初始data`包,可以将`InitData目录`中准备好的被指文件直接拷贝到data目录。
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502191557357.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202502191557357.png){ loading=lazy }
   <figcaption>将InitData目录中的数据拷贝到data中</figcaption>
 </figure>
 
@@ -242,21 +242,21 @@ docker compose up -d
 Gmcore服务创建时，会新建admin用户。但并没有初始化证书，这将导致admin用户无法创建印章。
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504231630095.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202504231630095.png){ loading=lazy }
   <figcaption>初始admin用户名下没有证书</figcaption>
 </figure>
 
 解决方案一：修改用户时，如果x509证书为空，后端会自动生成用户证书。
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504231642202.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202504231642202.png){ loading=lazy }
   <figcaption>手动生成用户证书</figcaption>
 </figure>
 
 解决方案二：直接创建一个新用户
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504231644009.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202504231644009.png){ loading=lazy }
   <figcaption>创建新用户</figcaption>
 </figure>
 
@@ -265,14 +265,14 @@ Gmcore服务创建时，会新建admin用户。但并没有初始化证书，这
 如果Gmcore使用的是Mysql数据库，生成印章时，可能会因为图片数据过大报错，需要手动修改数据库SealInfo表字段。将`blob`类型改为`mediumblob`类型。
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504231737473.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202504231737473.png){ loading=lazy }
   <figcaption>修改mysql数据库字段类型</figcaption>
 </figure>
 
 ### 导入OpenCloud JOb模板
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504250946998.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202504250946998.png){ loading=lazy }
   <figcaption>导入docker资源中提供的OpenCloud JOb模板</figcaption>
 </figure>
 

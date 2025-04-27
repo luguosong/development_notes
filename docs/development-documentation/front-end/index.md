@@ -25,22 +25,22 @@
 相关代码片段：
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504081751177.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202504081751177.png){ loading=lazy }
   <figcaption>demo-viewer24.10:调用open方法打开文件</figcaption>
 </figure>
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504090924238.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202504090924238.png){ loading=lazy }
   <figcaption>client24.10:打开文件相关代码，获取引用文件列表，下载引用文件并使用addEmbeddedFile方法添加引用文件</figcaption>
 </figure>
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504091317337.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202504091317337.png){ loading=lazy }
   <figcaption>VisualizeJS:addEmbeddedFile方法内部</figcaption>
 </figure>
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504091327131.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202504091327131.png){ loading=lazy }
   <figcaption>添加引用文件内部，会判断如果是真字体，使用真字体的英文字体名</figcaption>
 </figure>
 

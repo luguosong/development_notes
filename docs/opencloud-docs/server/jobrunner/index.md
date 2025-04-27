@@ -6,7 +6,7 @@ JobRunner 应用程序完成。
 以下示意图展示了 JobRunner 的工作原理：
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202503111052393.png){ loading=lazy }
+  ![](https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202503111052393.png){ loading=lazy }
   <figcaption>JobRunner 的工作原理</figcaption>
 </figure>
 

@@ -130,13 +130,13 @@ plugins:
       cache_safe: true
 
 extra_css:
-  - custom/css/font.css
-  - custom/css/custom.css
+  - https://cdn.jsdelivr.net/gh/luguosong/development_notes@master/docs/custom/css/font.css
+  - https://cdn.jsdelivr.net/gh/luguosong/development_notes@master/docs/custom/css/custom.css
   - https://unpkg.com/katex@0/dist/katex.min.css
 
 extra_javascript:
-  - custom/js/custom.js
-  - custom/js/katex.js
+  - https://cdn.jsdelivr.net/gh/luguosong/development_notes@master/docs/custom/js/custom.js
+  - https://cdn.jsdelivr.net/gh/luguosong/development_notes@master/docs/custom/js/katex.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 
