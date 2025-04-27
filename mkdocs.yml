@@ -101,7 +101,7 @@ extra:
           data: 0
           note: >-
             感谢您的反馈！请使用我们的
-            <a href="https://github.com/luguosong/programming-notes/issues/new/?title=[Feedback]+{title}+-+{url}" target="_blank" rel="noopener">反馈表</a>
+            <a href="https://github.com/luguosong/development_notes/issues/new/?title=[Feedback]+{title}+-+{url}" target="_blank" rel="noopener">反馈表</a>
             帮助我们改进此页面。
   generator: true # 显示使用Material for MkDocs制作
   social: #底部社交媒体链接
@@ -109,7 +109,7 @@ extra:
       link: https://github.com/luguosong
       name: Github
     - icon: simple/wechat
-      link: https://gcore.jsdelivr.net/gh/luguosong/images@master/blog-img/202404272008366.png
+      link: https://cdn.jsdelivr.net/gh/luguosong/images@master/blog-img/202404272008366.png
       name: 微信
 
 plugins:
