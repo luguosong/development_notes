@@ -197,7 +197,7 @@ compose时，如果宿主机中不存在对应的配置文件，docker并不会�
 - 拷贝BusinessClient前端项目配置文件到data目录，并修改其中的ip和端口
 
 <figure markdown="span">
-  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202502191533717.png){ loading=lazy }
+  ![](https://raw.githubusercontent.com/luguosong/images/master/blog-img/202504270925019.png){ loading=lazy }
   <figcaption>拷贝BusinessClient前端配置文件</figcaption>
 </figure>
 
